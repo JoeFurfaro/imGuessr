@@ -1,0 +1,359 @@
+#name-chars {
+  text-align: center;
+  font-family: "Inconsolata";
+  font-size: 16pt;
+}
+
+.text {
+  font-family: "Inconsolata";
+}
+
+.blue {
+  color: #174480;
+}
+
+#chatbox-heading,
+#leaderboard-heading,
+#players-heading {
+  width: 100%;
+  height: 48px;
+  background-color: #e5e5e5;
+  border-bottom: 1px solid #cccccc;
+}
+
+#pregame {
+  position: fixed;
+  left: 20%;
+  top: 0;
+  text-align: center;
+  width: 60%;
+  height: 100vh;
+}
+
+#game {
+  position: fixed;
+  left: 20%;
+  top: 0;
+  width: 60%;
+  height: 100vh;
+  text-align: center;
+}
+
+#placeholder-1 {
+  color: #174480;
+}
+
+#placeholder-2 {
+  font-size: 16pt;
+}
+
+#start-countdown {
+  text-align: center;
+  font-size: 120pt;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25vh;
+  animation-name: countdown-color;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes countdown-color {
+  0% {
+    color: #174480;
+  }
+  25% {
+    color: #222222;
+  }
+  75% {
+    color: #666666;
+  }
+  100% {
+    color: #174480;
+  }
+}
+
+#players-heading {
+  border-top: 1px solid #cccccc;
+}
+
+#chat {
+  width: 100%;
+  height: calc(100vh - 48px - 65px);
+  height: -webkit-calc(100vh - 48px - 65px);
+  overflow-y: scroll;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+#players {
+  height: calc(50vh - 48px);
+  height: -webkit-calc(50vh - 48px);
+  padding-top: 10px;
+  overflow-y: scroll;
+}
+
+.soon {
+  color: #f24949 !important;
+}
+
+.now {
+  color: #174480 !important;
+  font-weight: bold;
+}
+
+#send-chat {
+  width: 100%;
+  height: 65px;
+  background-color: #e5e5e5;
+  border-top: 1px solid #cccccc;
+  text-align: center;
+  z-index: 100;
+}
+
+.chat-post {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: "Inconsolata";
+  color: #444444;
+  font-size: 10pt;
+  margin-bottom: 1px;
+}
+
+.chat-name {
+  font-family: "Inconsolata";
+  color: #174480;
+  font-weight: bold;
+}
+
+#pr-1 {
+  color: #3b5e3c;
+  margin-top: 15vh;
+  font-size: 24pt;
+}
+
+.pr-1-animate {
+  animation-name: pr-1-grow;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes pr-1-grow {
+  100% {
+    font-size: 36pt;
+  }
+}
+
+@keyframes pr-2-grow {
+  100% {
+    font-size: 24pt;
+  }
+}
+
+@keyframes pr-3-grow {
+  100% {
+    font-size: 20pt;
+  }
+}
+
+.pr-2-animate {
+  animation-name: pr-2-grow;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+
+.pr-3-animate {
+  animation-name: pr-3-grow;
+  animation-duration: 0.8s;
+  animation-fill-mode: forwards;
+}
+
+#pr-2 {
+  color: #4ae04d;
+  font-size: 18pt;
+}
+
+#pr-3 {
+  color: #454545;
+  font-size: 12pt;
+}
+
+#display-image {
+  width: 200px;
+}
+
+.gold {
+  color: #b58304;
+}
+
+.silver {
+  color: #c9c9c7;
+}
+
+.bronze {
+  color: #9c4a08;
+}
+
+.passed {
+  color: #3b5e3c;
+  font-weight: bold;
+}
+
+.failed {
+  color: #f24949;
+  font-weight: bold;
+}
+
+.chat-name-failed {
+  font-family: "Inconsolata";
+  color: #9e2d2b;
+  font-weight: bold;
+}
+
+.chat-name-passed {
+  font-family: "Inconsolata";
+  color: #4ae04d;
+  font-weight: bold;
+}
+
+#leaderboard {
+  height: calc(50vh - 48px);
+  height: -webkit-calc(50vh - 48px);
+  padding-top: 10px;
+  overflow-y: scroll;
+}
+
+.player {
+  width: 90%;
+  margin-bottom: 1px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#live-chat-header,
+#leaderboard-header,
+#players-header {
+  font-size: 18pt;
+  margin-top: 0px;
+}
+
+#chatbox {
+  position: fixed;
+  right: 0;
+  height: 100vh;
+  width: 20%;
+  background: #eeeeee;
+  display: none;
+  border-left: 1px solid #cccccc;
+}
+
+#leaderboard-box {
+  position: fixed;
+  left: 0;
+  height: 100vh;
+  width: 20%;
+  background: #eeeeee;
+  display: none;
+  border-right: 1px solid #cccccc;
+}
+
+#send-chat-field {
+  border: 1px solid #cccccc;
+  border-radius: 11px;
+  font-family: "Inconsolata";
+  color: #174480;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 12px;
+  padding-right: 12px;
+  font-size: 12pt;
+  width: 95%;
+  background: #ffffff;
+  margin-top: 10px;
+}
+
+#send-chat-field:focus {
+  outline: none;
+  border: 1px solid #666666;
+}
+
+#name-select-field {
+  border: 1px solid #174480;
+  border-radius: 10px;
+  padding: 5px;
+  display: block;
+  width: 50%;
+  font-family: "Inconsolata";
+  color: #174480;
+}
+
+#image-panel {
+  top: 0;
+  left: 20%;
+  width: 100%;
+  height: 75vh;
+  padding-top: 10vh;
+}
+
+.name-select-animation {
+  animation-name: name-select-grow;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes name-select-grow {
+  100% {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+    font-size: 30pt;
+    border-radius: 30px;
+  }
+}
+
+kbd {
+  background: #353535;
+}
+
+#choose-name-sub {
+  font-size: 10pt;
+  margin-bottom: 25px;
+  font-family: "Inconsolata";
+  color: #666666;
+  display: block;
+}
+
+.choose-name-sub-animation {
+  animation-name: choose-name-sub-grow;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes choose-name-sub-grow {
+  100% {
+    font-size: 18pt;
+  }
+}
+
+#choose-name {
+  font-size: 12pt;
+  margin-bottom: 10px;
+  font-family: "Inconsolata";
+  color: #174480;
+  display: block;
+}
+
+.choose-name-animation {
+  animation-name: choose-name-grow;
+  animation-duration: 0.6s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes choose-name-grow {
+  100% {
+    font-size: 40pt;
+  }
+}
