@@ -7,6 +7,8 @@ import asyncio
 import datetime
 import random
 import websockets
+import argparse
+import ssl
 
 game = None
 lobby = Lobby()
@@ -151,8 +153,20 @@ async def time(socket, path):
             lobby.state = "waiting"
         await lobby.send_all(packet(status="PLAYER_LIST", players=lobby.player_list()))
 
+parser = argparse.ArgumentParser()
+parser.add_argument("address")
+parser.add_argument("port", type=int)
+parser.add_argument("--ssl", nargs=2)
 
-start_server = websockets.serve(time, '127.0.0.1', 5678)
+args = parser.parse_args()
+
+if args.ssl != None:
+    ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+    ssl_context.load_cert_chain(args.ssl[0], args.ssl[1])
+    start_server = websockets.serve(
+        time, args.address, args.port, ssl=ssl_context)
+else:
+    start_server = websockets.serve(time, args.address, args.port)
 
 print("Starting server!")
 

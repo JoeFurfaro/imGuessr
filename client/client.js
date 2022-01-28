@@ -10,6 +10,7 @@ socket.onopen = (event) => {
 
 socket.onclose = (event) => {
     console.log("Closed socket!")
+    alert("Lost connection! Try refreshing the page.");
 }
 
 socket.onmessage = (event) => {
