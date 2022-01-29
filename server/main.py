@@ -53,7 +53,7 @@ async def start_round():
         lobby.state = "finishing"
         # Send final scores and winner
         await lobby.send_all(packet(status="GAME_OVER", scores=game.jsonScores(), team_score=game.score))
-        await asyncio.sleep(10)
+        await asyncio.sleep(12)
         lobby.state = "waiting"
         game = None
         if len(lobby.players) > 0:

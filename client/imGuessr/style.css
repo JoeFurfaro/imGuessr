@@ -172,6 +172,16 @@
   font-size: 18pt;
 }
 
+#pr-2b {
+  color: #c9c9c7;
+  font-size: 18pt;
+}
+
+#pr-2c {
+  color: #9c4a08;
+  font-size: 18pt;
+}
+
 #pr-3 {
   color: #454545;
   font-size: 12pt;
@@ -184,6 +194,58 @@
 
 .gold {
   color: #b58304;
+}
+
+.lb-gold {
+  background: #f7cc54;
+  color: #333333;
+  text-align: center;
+  width: 90%;
+  border-radius: 10px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-weight: bold;
+  font-size: 13pt;
+  margin-bottom: 10px;
+}
+
+.lb-silver {
+  background: #cccccc;
+  color: #333333;
+  text-align: center;
+  width: 90%;
+  border-radius: 10px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  font-weight: bold;
+  font-size: 13pt;
+  margin-bottom: 10px;
+}
+
+.lb-bronze {
+  background: #b5751b;
+  color: #eeeeee;
+  text-align: center;
+  width: 90%;
+  border-radius: 10px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  font-weight: bold;
+  font-size: 13pt;
+  margin-bottom: 10px;
+}
+
+.lb-reg {
+  background: white;
+  color: #555555;
+  text-align: center;
+  width: 90%;
+  border-radius: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-weight: bold;
+  font-size: 13pt;
+  margin-bottom: 10px;
 }
 
 .silver {
@@ -223,11 +285,36 @@
   overflow-y: scroll;
 }
 
+.name-img {
+  width: 8%;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.name-img-animated {
+  animation-name: name-img-grow;
+  animation-fill-mode: forwards;
+  animation-duration: 0.6s;
+}
+
+@keyframes name-img-grow {
+  100% {
+    width: 18%;
+    margin-bottom: 15px;
+  }
+}
+
 .player {
   width: 90%;
-  margin-bottom: 1px;
+  margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+  background: #dfdfdf;
+  font-weight: bold;
 }
 
 #live-chat-header,
@@ -296,6 +383,9 @@
   padding-top: 10vh;
 }
 
+.header-img {
+  width: 30px;
+}
 .name-select-animation {
   animation-name: name-select-grow;
   animation-duration: 0.6s;

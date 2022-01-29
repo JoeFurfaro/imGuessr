@@ -6,6 +6,7 @@ socket.onopen = (event) => {
     $("#choose-name").addClass('choose-name-animation');
     $("#choose-name-sub").addClass('choose-name-sub-animation');
     $("#name-select-field").addClass('name-select-animation');
+    $(".name-img").addClass('name-img-animated');
 }
 
 socket.onclose = (event) => {
@@ -24,6 +25,7 @@ socket.onmessage = (event) => {
             $("#choose-name").removeClass('choose-name-animation');
             $("#choose-name-sub").removeClass('choose-name-sub-animation');
             $("#name-select-field").removeClass('name-select-animation');
+            $(".name-img").removeClass('name-img-animated');
             $("#chatbox").fadeIn(300);
             $("#leaderboard-box").fadeIn(300);
         });
@@ -53,6 +55,8 @@ socket.onmessage = (event) => {
         $("#pregame").fadeOut(500, () => {
             $("#game").fadeIn(200);
         });
+        $("#pr-2b").html("");
+        $("#pr-2c").html("");
     } else if(data.status == "PLAYER_LIST") {
         $("#players").html("");
         for(let name of data.players) {
@@ -67,6 +71,8 @@ socket.onmessage = (event) => {
             $("#image-panel").fadeIn(200);  
             $("#pr-1").removeClass('pr-1-animate');
             $("#pr-2").removeClass('pr-2-animate');
+            $("#pr-2b").removeClass('pr-2-animate');
+            $("#pr-2c").removeClass('pr-2-animate');
             $("#pr-3").removeClass('pr-3-animate');
         });
         $("#display-image").attr("src", data.img_url);
@@ -105,6 +111,8 @@ socket.onmessage = (event) => {
             $("#postround").fadeIn(80);
             $("#pr-1").addClass('pr-1-animate');
             $("#pr-2").addClass('pr-2-animate');
+            $("#pr-2b").addClass('pr-2-animate');
+            $("#pr-2c").addClass('pr-2-animate');
             $("#pr-3").addClass('pr-3-animate');
         });
         chatScrollBottom();
@@ -122,24 +130,26 @@ socket.onmessage = (event) => {
         $("#chat").html(curChat + newChat);
         $("#pr-1").html("Game Over");
         $("#pr-1").css("color", "#9e2d2b");
-        $("#pr-2").css("color", "#bbbbbb");
-        let winners = "";
+        $("#pr-2").css("color", "#b58304");
         let i = 1;
+        let hasWinners = false;
         for(let item of data.scores) {
+            hasWinners = true;
             if(i == 1)
-                winners += "<span class='gold'>&#129351;" + item.player + "(" + item.score + ")</span>";
+                $("#pr-2").html("&#129351;&nbsp;" + item.player + "&nbsp;(" + item.score + ")");
             else if(i == 2)
-                winners += "&nbsp;|&nbsp;<span class='silver'>&#129352;" + item.player + "(" + item.score + ")</span>";
+                $("#pr-2b").html("&#129352;&nbsp;" + item.player + "&nbsp;(" + item.score + ")");
             else if(i == 3)
-                winners += "&nbsp;|&nbsp;<span class='bronze'>&#129353;" + item.player + "(" + item.score + ")</span>";
+                $("#pr-2c").html("&#129353;&nbsp;" + item.player + "&nbsp;(" + item.score + ")");
             if(i > 3)
                 break;
             i++;
         }
-        if(winners == "")
-            winners = "There were no winners!";
-        $("#pr-2").html(winners);
-        $("#pr-3").html("A new lobby will start soon!");
+        if(!hasWinners) {
+            $("#pr-2").css("color", "#444444");
+            $("#pr-2").html("There were no winners.");
+        }
+        $("#pr-3").html("A new lobby will start shortly!");
         if($("#image-panel").is(":visible")) {
             $("#image-panel").fadeOut(200, () => {
                 $("#postround").fadeIn(80);
@@ -157,7 +167,7 @@ socket.onmessage = (event) => {
         chatScrollBottom();
     } else if(data.status == "STARTING_GAME") {
         $("#chat").html("");
-        $("#leaderboard").html('<p class="text ml-auto mr-auto" style="width:90%">Players that have scored points will appear here, ranked by their score.</p>');
+        $("#leaderboard").html('<p class="text ml-auto mr-auto" style="width:90%">Players that have scored points will appear here, ranked in order of their score.</p>');
         $("#game").fadeOut(500, () => {
             $("#pregame").fadeIn(200);
         });
@@ -176,14 +186,13 @@ function updateLeaderboard(scores) {
     let i = 1;
     for(let item of scores) {
         if(i == 1)
-            emoji = "&#129351;&nbsp;";
+            html += '<p class="text lb-gold ml-auto mr-auto " style="width:90%">[#' + i + '] &#129351;&nbsp;' + item.player + ' - &nbsp;' + item.score + '</p>';
         else if(i == 2)
-            emoji = "&#129352;&nbsp;";
+            html += '<p class="text lb-silver ml-auto mr-auto" style="width:90%">[#' + i + '] &#129352;&nbsp;' + item.player + ' - &nbsp;' + item.score + '</p>';
         else if(i == 3)
-            emoji = "&#129353;&nbsp;";
+            html += '<p class="text lb-bronze ml-auto mr-auto" style="width:90%">[#' + i + '] &#129353;&nbsp;' + item.player + ' - &nbsp;' + item.score + '</p>';
         else
-            emoji = "&nbsp;" + i + ".&nbsp";
-        html += '<p class="text ml-auto mr-auto mb-1" style="width:90%">' + emoji + '<span class="chat-name">' + item.player + '</span>:&nbsp;' + item.score + '</p>';
+            html += '<p class="text lb-reg ml-auto mr-auto" style="width:90%">[#' + i + '] ' + item.player + ' - &nbsp;' + item.score + '</p>';
         i++;
     }
     if(html == "") {
