@@ -40,6 +40,8 @@ async def start_round():
     game.reset_timer()
     while game.round_time > 0:
         await lobby.send_all(packet(status="ROUND_TIME_LEFT", time_left=game.round_time))
+        if game.round_time == int(game.max_round_time / 3):
+            await lobby.send_all(packet(status="HINT", data=game.hint()))
         await asyncio.sleep(1)
         game.round_time -= 1
     game.state = "postround"

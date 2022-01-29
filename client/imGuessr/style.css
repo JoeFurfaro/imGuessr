@@ -177,6 +177,21 @@
   font-size: 18pt;
 }
 
+.hint {
+  letter-spacing: 0.4em;
+}
+
+.hint-post {
+  color: #1b97d1;
+  border: 1px solid #1b97d1;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 8px;
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 #pr-2c {
   color: #9c4a08;
   font-size: 18pt;
@@ -190,6 +205,8 @@
 #display-image {
   height: 60%;
   max-width: 80%;
+  border: 20px solid #bbbbbb;
+  border-radius: 10px;
 }
 
 .gold {

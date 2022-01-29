@@ -51,6 +51,8 @@ socket.onmessage = (event) => {
         let curChat = $("#chat").html();
         let newChat = '<p class="chat-post now">The game has begun!</p>';
         $("#chat").html(curChat + newChat);
+        $("#image-panel").hide();
+        $("#postround").hide();
         chatScrollBottom();
         $("#pregame").fadeOut(500, () => {
             $("#game").fadeIn(200);
@@ -68,7 +70,7 @@ socket.onmessage = (event) => {
         $("#display-image").attr("src", "");
     } else if(data.status == "NEW_ROUND") {
         $("#postround").fadeOut(200, () => {
-            $("#image-panel").fadeIn(200);  
+            $("#image-panel").delay(800).fadeIn(200);  
             $("#pr-1").removeClass('pr-1-animate');
             $("#pr-2").removeClass('pr-2-animate');
             $("#pr-2b").removeClass('pr-2-animate');
@@ -175,6 +177,11 @@ socket.onmessage = (event) => {
         $("#pregame").hide();
         $("#game").fadeIn(300);
         updateLeaderboard(data.scores);
+    } else if(data.status == "HINT") {
+        let curChat = $("#chat").html();
+        let newChat = '<p class="hint-post chat-post" style="font-weight:bold">HINT: <span class="hint">' + data.data + '</span></p>';
+        $("#chat").html(curChat + newChat);
+        chatScrollBottom();
     }
 }
 

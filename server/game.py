@@ -12,7 +12,7 @@ class Game():
     def __init__(self):
         self.url = None
         self.word = None
-        self.starting_in = 3
+        self.starting_in = 60
         # possible states: preround, guessing, postround
         self.state = "preround"
         self.round_winner = None
@@ -62,6 +62,11 @@ class Game():
             self.add_one_score(player)
             return True
         return False
+
+    def hint(self):
+        words = self.word.split(" ")
+        hint_words = [word[0] + (len(word)-1)*"_" for word in words]
+        return " ".join(hint_words).upper()
 
 
 class Lobby():
