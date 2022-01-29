@@ -17,7 +17,7 @@ class Game():
         self.state = "preround"
         self.round_winner = None
         self.lives = 3
-        self.max_round_time = 20
+        self.max_round_time = 30
         self.round_time = self.max_round_time
         self.score = 0
         self.player_scores = {}

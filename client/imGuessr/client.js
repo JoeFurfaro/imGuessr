@@ -70,6 +70,7 @@ socket.onmessage = (event) => {
             $("#pr-3").removeClass('pr-3-animate');
         });
         $("#display-image").attr("src", data.img_url);
+        console.log($("#display-image").attr("width"));
         let curChat = $("#chat").html();
         let newChat = '<p class="chat-post"><span class="chat-name">A new round has started. Guess what you think the image is in the lobby chat!</span></p>';
         $("#chat").html(curChat + newChat);
