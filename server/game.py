@@ -63,6 +63,11 @@ class Game():
             return True
         return False
 
+    def hint(self):
+        words = self.word.split(" ")
+        hint_words = [word[0] + (len(word)-1)*"_" for word in words]
+        return " ".join(hint_words).upper()
+
 
 class Lobby():
     def __init__(self):
