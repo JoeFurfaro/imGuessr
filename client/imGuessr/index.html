@@ -2,73 +2,115 @@
 <html>
   <head>
     <title>imGuessr - Guess the word!</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <script language="javascript" type="text/javascript" src="client.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <script
+      language="javascript"
+      type="text/javascript"
+      src="client.js"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inconsolata&display=swap" rel="stylesheet">
-    <link rel="icon" href="icon.png">
-    <link rel="shortcut icon" href="icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Open+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="icon.png" />
+    <link rel="shortcut icon" href="icon.png" />
   </head>
-  <body>  
+  <body>
     <div class="container-fluid">
-        <div id="name-select" style="display:none" class="col-4 mt-5 pt-5 ml-auto mr-auto text-center">
-            <div class="row mt-5 pt-5">
-                <h1 id="choose-name" class="text-center ml-auto mr-auto">choose a name</h1>
-            </div>
-            <div class="row">
-                <h1 id="choose-name-sub" class="text-center ml-auto mr-auto">and press <kbd>enter&#8629;</kbd> to continue</h1>
-            </div>
-            <div classs="row">
-                <input onkeypress="nameKeyPress(event)" onkeyup="nameKeyPress(event)" type="text" id="name-select-field" class="text-center ml-auto mr-auto">
-            </div>
-            <div class="row">
-                <h5 id="name-chars" style="display:none" class="ml-auto mr-auto mt-3"></h5>
-            </div>
+      <div
+        id="name-select"
+        style="display: none"
+        class="col-4 mt-5 pt-5 ml-auto mr-auto text-center"
+      >
+        <div class="row mt-5 pt-5">
+          <h1 id="choose-name" class="text-center ml-auto mr-auto">
+            choose a name
+          </h1>
         </div>
-        <div id="leaderboard-box">
-            <div id="leaderboard-heading">
-                <h1 id="leaderboard-header" class="text blue ml-4 pt-2">&#128200; Leaderboard</h1>
-            </div>
-            <div id="leaderboard">
-                <p class="text ml-auto mr-auto" style="width:90%">Players that have scored points will appear here, ranked by their score.</p>
-            </div>
-            <div id="players-heading">
-                <h1 id="players-header" class="text blue ml-4 pt-2">&#129299; Players</h1>
-            </div>
-            <div id="players">
-                <p class="text ml-auto mr-auto mt-3" style="width:90%"></p>
-            </div>
+        <div class="row">
+          <h1 id="choose-name-sub" class="text-center ml-auto mr-auto">
+            and press <kbd>enter&#8629;</kbd> to continue
+          </h1>
         </div>
-        <div id="chatbox">
-            <div id="chatbox-heading">
-                <h1 id="live-chat-header" class="text blue ml-4 pt-2">&#128172; Lobby Chat</h1>
-            </div>
-            <div id="chat">
-
-            </div>
-            <div id="send-chat">
-                <input id="send-chat-field" type="text" placeholder="Send a chat message..." onkeypress="chatKeyPress(event)">
-            </div>
+        <div classs="row">
+          <input
+            onkeypress="nameKeyPress(event)"
+            onkeyup="nameKeyPress(event)"
+            type="text"
+            id="name-select-field"
+            class="text-center ml-auto mr-auto"
+          />
         </div>
-        <div id="pregame" style="display:none">
-            <h1 class="text" id="start-countdown"></h1>
-            <h2 class="text text-secondary">second(s) until game start</h2>
+        <div class="row">
+          <h5
+            id="name-chars"
+            style="display: none"
+            class="ml-auto mr-auto mt-3"
+          ></h5>
         </div>
-        <div id="game" style="display:none">
-            <div id="image-panel">
-                <img id="display-image" src="">
-            </div>
-            <div id="postround">
-                <h1 class="text" id="pr-1"></h1>
-                <h2 class="text" id="pr-2"></h2>
-                <h2 class="text" id="pr-3"></h2>
-            </div>
+      </div>
+      <div id="leaderboard-box">
+        <div id="leaderboard-heading">
+          <h1 id="leaderboard-header" class="text blue ml-4 pt-2">
+            &#128200; Leaderboard
+          </h1>
         </div>
+        <div id="leaderboard">
+          <p class="text ml-auto mr-auto" style="width: 90%">
+            Players that have scored points will appear here, ranked by their
+            score.
+          </p>
+        </div>
+        <div id="players-heading">
+          <h1 id="players-header" class="text blue ml-4 pt-2">
+            &#129299; Players
+          </h1>
+        </div>
+        <div id="players">
+          <p class="text ml-auto mr-auto mt-3" style="width: 90%"></p>
+        </div>
+      </div>
+      <div id="chatbox">
+        <div id="chatbox-heading">
+          <h1 id="live-chat-header" class="text blue ml-4 pt-2">
+            &#128172; Lobby Chat
+          </h1>
+        </div>
+        <div id="chat"></div>
+        <div id="send-chat">
+          <input
+            id="send-chat-field"
+            type="text"
+            placeholder="Send a chat message..."
+            onkeypress="chatKeyPress(event)"
+          />
+        </div>
+      </div>
+      <div id="pregame" style="display: none">
+        <h1 class="text" id="start-countdown"></h1>
+        <h2 class="text text-secondary">second(s) until game start</h2>
+      </div>
+      <div id="game" style="display: none">
+        <div id="image-panel">
+          <img id="display-image" src="" />
+        </div>
+        <div id="postround">
+          <h1 class="text" id="pr-1"></h1>
+          <h2 class="text" id="pr-2"></h2>
+          <h2 class="text" id="pr-3"></h2>
+        </div>
+      </div>
     </div>
   </body>
 </html>

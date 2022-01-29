@@ -95,12 +95,12 @@ async def time(socket, path):
     if lobby.state == "playing":
         await socket.send(packet(status="IN_GAME", scores=game.jsonScores()))
         if game.state == "guessing":
-            await lobby.send_all(packet(status="NEW_ROUND", img_url=game.url))
+            await socket.send(packet(status="NEW_ROUND", img_url=game.url))
         elif game.state == "postround":
             await socket.send(packet(status="POST_ROUND"))
     elif lobby.state == "finishing":
         await socket.send(packet(status="IN_GAME", scores=game.jsonScores()))
-        await lobby.send_all(packet(status="GAME_OVER", scores=game.jsonScores(), team_score=game.score))
+        await socket.send(packet(status="GAME_OVER", scores=game.jsonScores(), team_score=game.score))
     try:
         if lobby.state == "waiting":
             log("Game will start soon")

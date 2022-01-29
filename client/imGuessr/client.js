@@ -1,5 +1,5 @@
-//let socket = new WebSocket("ws://localhost:5678");
-let socket = new WebSocket("wss://svcrafted.com:5678");
+let socket = new WebSocket("ws://localhost:5678");
+// let socket = new WebSocket("wss://svcrafted.com:5678");
 
 socket.onopen = (event) => {
     $("#name-select").show();

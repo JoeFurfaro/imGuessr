@@ -12,12 +12,12 @@ class Game():
     def __init__(self):
         self.url = None
         self.word = None
-        self.starting_in = 30
+        self.starting_in = 3
         # possible states: preround, guessing, postround
         self.state = "preround"
         self.round_winner = None
         self.lives = 3
-        self.max_round_time = 60
+        self.max_round_time = 20
         self.round_time = self.max_round_time
         self.score = 0
         self.player_scores = {}
