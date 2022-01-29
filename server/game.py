@@ -12,7 +12,7 @@ class Game():
     def __init__(self):
         self.url = None
         self.word = None
-        self.starting_in = 3
+        self.starting_in = 60
         # possible states: preround, guessing, postround
         self.state = "preround"
         self.round_winner = None
