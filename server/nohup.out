@@ -1,0 +1,460 @@
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 87, in time
+    name = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 136, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 136, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 87, in time
+    name = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 136, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 944, in transfer_data
+    message = await self.read_message()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 1013, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 1089, in read_data_frame
+    frame = await self.read_frame(max_size)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+  File "/usr/lib/python3.8/asyncio/streams.py", line 721, in readexactly
+    raise exceptions.IncompleteReadError(incomplete, n)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 2 expected bytes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 136, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 87, in time
+    name = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: received 1005 (no status code [internal]); then sent 1005 (no status code [internal])
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 136, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 944, in transfer_data
+    message = await self.read_message()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 1013, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 1089, in read_data_frame
+    frame = await self.read_frame(max_size)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+  File "/usr/lib/python3.8/asyncio/streams.py", line 721, in readexactly
+    raise exceptions.IncompleteReadError(incomplete, n)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 2 expected bytes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 136, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 136, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+Starting server!
+Player joined: joe
+Game will start soon
+Game starting now!
+here1
+here2 teacher
+here3 https://cdn-res.keymedia.com/cms/images/ca/126/0299_637453855418575056.jpg
+here4
+here1
+here2 scratch
+here3 https://news.mit.edu/sites/default/files/styles/news_article__image_gallery/public/images/201305/20130514110054-1_0_0.jpg?itok=J8bRetuU
+here4
+here1
+here2 round
+here3 https://images.homedepot.ca/productimages/p_1001184009.jpg?wid=1000&hei=1000&op_sharpen=1&product-images=l
+here4
+Game starting now!
+here1
+here2 drive
+here3 https://www.cnet.com/a/img/s-t7ErsqmA21GxePN8vX0YMdrvg=/1200x630/2016/04/15/83350f75-d5fe-4b92-bd3d-df904bd51158/google-drive-icon.jpg
+here4
+Player left: joe
+Reset lobby to waiting state
+Player joined: Zdiggity
+Game will start soon
+Player joined: joe
+Game starting now!
+here1
+here2 applause
+here3 https://static.vecteezy.com/system/resources/previews/003/498/451/original/applause-clap-your-hands-illustration-in-flat-style-vector.jpg
+here4
+here1
+here2 pirate
+here3 https://www.worldhistory.org/img/r/p/500x600/14535.png?v=1635282902
+here4
+here1
+here2 superman
+here3 https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Superman_shield.svg/1200px-Superman_shield.svg.png
+here4
+here1
+here2 abe lincoln
+here3 https://deadline.com/wp-content/uploads/2021/02/AP631108094.jpg
+here4
+here1
+here2 wing
+here3 https://media.istockphoto.com/vectors/wing-collection-vector-id1292783390?k=20&m=1292783390&s=612x612&w=0&h=SaIAaDqfx1-wiSpjo_fdk4JCc28XELnYv1D35M0rilk=
+here4
+here1
+here2 sing
+here3 https://ca-times.brightspotcdn.com/dims4/default/821f7fc/2147483647/strip/true/crop/2098x1134+0+0/resize/1486x803!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F5d%2F6b%2Fdc64d7dc4b1dba5923174fc9bd40%2Fsing2mixingboard.jpg
+here4
+here1
+here2 grapes
+here3 https://scx2.b-cdn.net/gfx/news/hires/2022/grapes.jpg
+here4
+here1
+here2 popsicle
+here3 https://media.istockphoto.com/vectors/colorful-popsicles-vector-vector-id486828856?k=20&m=486828856&s=612x612&w=0&h=XF_4BZIuzTQZHv4mfARZnrfJVwtrlq7y6O0dKed93xQ=
+here4
+here1
+here2 hat
+here3 https://m.media-amazon.com/images/I/61+5hBQrXHL._AC_UL1000_.jpg
+here4
+Game starting now!
+here1
+here2 clock
+here3 https://m.media-amazon.com/images/I/61mjl672ULL._AC_SL1001_.jpg
+here4
+here1
+here2 sunburn
+here3 https://media.glamour.com/photos/575f17ff229ec873777bc83d/1:1/w_728,h_728,c_limit/kim-kardashian-sunburn.jpg
+here4
+here1
+here2 eagle
+here3 https://www.eagles.org/wp-content/uploads/2020/07/MG_7021-176-scaled.jpg
+here4
+here1
+here2 jump
+here3 https://www.moveplaypaedtherapy.com.au/wp-content/uploads/2019/01/shutterstock_1023694321-1.jpg
+here4
+here1
+here2 fart
+here3 https://www.rollingstone.com/wp-content/uploads/2022/01/stephanie-matto.jpg?resize=1800,1200&w=1800
+here4
+Game starting now!
+here1
+here2 mailbox
+here3 https://homehardware.sirv.com/products/5440/5440052.view?thumb
+here4
+here1
+here2 pikachu
+here3 https://ichef.bbci.co.uk/news/640/cpsprodpb/C120/production/_104304494_mediaitem104304493.jpg
+here4
+here1
+here2 list
+here3 https://api.backlinko.com/app/uploads/2019/12/the-simple-list-post.png
+here4
+here1
+here2 police
+here3 https://portmoodypolice.ca/wp-content/uploads/2021/09/IMG_2478-copy.jpg
+here4
+Player left: joe
+Game starting now!
+here1
+here2 computer
+here3 https://merchandising-assets.bestbuy.ca/bltc8653f66842bff7f/blt15699ad05c6798df/619552bf47db93765d90e738/computing-evergreen-offer-laptops-and-macbooks-m.jpg?width=1800&quality=80&auto=webp
+here4
+here1
+here2 boardgame
+here3 https://i.guim.co.uk/img/media/696d305e8fb4ec8e33038325f5e135ad7e6f62b5/0_878_3586_2149/master/3586.jpg?width=1200&quality=85&auto=format&fit=max&s=88bdb4cefb72fbc07627a2eb1e4510cd
+here4
+here1
+here2 scratch
+here3 https://addons.mozilla.org/user-media/previews/full/225/225094.png?modified=1622134776
+here4
+Game starting now!
+here1
+here2 burp
+here3 https://images.theconversation.com/files/334198/original/file-20200512-66675-10mi3j6.jpg?ixlib=rb-1.1.0&rect=484%2C92%2C4271%2C3073&q=20&auto=format&w=320&fit=clip&dpr=2&usm=12&cs=strip
+here4
+here1
+here2 house
+here3 https://www.incimages.com/uploaded_files/image/1920x1080/getty_856794670_385651.jpg
+here4
+Player joined: Jmooy
+Player joined: joe
+here1
+here2 mailbox
+here3 https://media.istockphoto.com/photos/open-mailbox-with-letters-on-rural-backgound-picture-id1285800846?b=1&k=20&m=1285800846&s=170667a&w=0&h=XTNubX7I91KkXbAc4KCVa89AzEOhlbaCgt-MIIOzGhs=
+here4
+here1
+here2 library
+here3 https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F211130174309-book-banning-american-library-association-restricted.jpg
+here4
+here1
+here2 pancakes
+here3 https://tmbidigitalassetsazure.blob.core.windows.net/rms3-prod/attachments/37/1200x1200/Chocolate-Lover-s-Pancakes_EXPS_TOHCA19_133776_B03_15_3b_rms.jpg
+here4
+here1
+here2 baseball
+here3 https://static.wbsc.org/assets/cms/ef40f1a5-a156-3d56-d65a-ed57b3c1cefd.jpg
+here4
+here1
+here2 fish sticks
+here3 https://airfryerworld.com/images/Air-Fryer-Frozen-Fish-Sticks-AirFryerWorld-2-500x375.jpg
+here4
+here1
+here2 girlfriend
+here3 https://www.yourtango.com/sites/default/files/styles/body_image_default/public/2020/man-woman-loving-embrace-boyfriend-girlfriend.jpg
+here4
+Game starting now!
+here1
+here2 learn
+here3 https://ahmedalkiremli.com/wp-content/uploads/2014/09/Learn-Ahmed-Al-Kiremli.jpg
+here4
+Player left: Jmooy
+here1
+here2 spatula
+here3 https://m.media-amazon.com/images/I/61adlhu0KUL._AC_SL1500_.jpg
+here4
+here1
+here2 laptop
+here3 https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RE4LqQX?ver=1f00&q=90&m=6&h=705&w=1253&b=%23FFFFFFFF&f=jpg&o=f&p=140&aim=true
+here4
+Game starting now!
+here1
+here2 whistle
+here3 https://media.istockphoto.com/vectors/referee-whistle-vector-illustration-vector-id858018820?k=20&m=858018820&s=170667a&w=0&h=IrSrOzbgdb0SeyX_jcRNuQ-sonzlPiWbDp3bp9-hHeU=
+here4
+here1
+here2 panda
+here3 https://cdn.mos.cms.futurecdn.net/3n8tRry6fYg7sNyhFDPQwR.jpg
+here4
+here1
+here2 bake sale
+here3 https://media.istockphoto.com/photos/bake-sale-cookies-picture-id486207023
+here4
+here1
+here2 spongebob
+here3 https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Patrick_Star.svg/1200px-Patrick_Star.svg.png
+here4
+Player left: joe
+Player joined: joe
+here1
+here2 biscuits
+here3 https://www.spendwithpennies.com/wp-content/uploads/2021/10/Easy-Homemade-Buttermilk-Biscuits-SpendWithPennies-8.jpg
+here4
+Game starting now!
+here1
+here2 coal
+here3 https://www.americangeosciences.org/sites/default/files/styles/ci__650_x_430_/public/CI_259_coal_CSRIO_CCBY3.0_180625_1200x800px_0.jpg?itok=SsQaI4DH
+here4
+Player joined: Jake
+Player left: Jake
+here1
+here2 sunglasses
+here3 https://cdn.shopify.com/s/files/1/0084/1616/5946/products/AGingersSoul_3Q_600x.jpg?v=1588805484
+here4
+Player left: Zdiggity
+here1
+here2 headphones
+here3 https://www.mytrendyphone.eu/images/Forever-Music-Soul-BHS-300-Bluetooth-Headphones-with-Microphone-Black-5900495738110-17072019-01-p.jpg
+here4
+here1
+here2 bouquet
+here3 https://fyf.tac-cdn.net/images/products/small/TEV55-6.jpg?auto=webp&quality=25
+here4
+here1
+here2 run
+here3 https://health.clevelandclinic.org/wp-content/uploads/sites/3/2019/05/kidsRaceAge-891544116-770x553.jpg
+here4
+here1
+here2 chef
+here3 https://hips.hearstapps.com/cos.h-cdn.co/assets/15/44/1445864120-noreserations.jpg
+here4
+Game starting now!
+here1
+here2 taco
+here3 https://www.carveyourcraving.com/wp-content/uploads/2020/09/Easy-vegetarian-tacos.jpg
+here4
+here1
+here2 turkey
+here3 https://cdn.vox-cdn.com/thumbor/MZdPtDWbDft-O51sbSdBSeekrDo=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22976864/merlin_358195.jpg
+here4
+here1
+here2 spitball
+here3 https://www.wikihow.com/images/thumb/4/4e/Make-Spitballs-Step-16.jpg/v4-460px-Make-Spitballs-Step-16.jpg
+here4
+Game starting now!
+here1
+here2 washington dc
+here3 https://media.tacdn.com/media/attractions-splice-spp-674x446/07/01/28/64.jpg
+here4
+here1
+here2 kite
+here3 https://m.media-amazon.com/images/I/61LuGcGfpeL._AC_SL1500_.jpg
+here4
+here1
+here2 heaven
+here3 https://media.swncdn.com/cms/CW/31203-heaven-facebook.1200w.tn.jpg
+here4
+Game starting now!
+here1
+here2 man
+here3 connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 136, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+Starting server!
+Traceback (most recent call last):
+  File "main.py", line 173, in <module>
+    asyncio.get_event_loop().run_until_complete(start_server)
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/usr/lib/python3.8/asyncio/tasks.py", line 695, in _wrap_awaitable
+    return (yield from awaitable.__await__())
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1086, in __await_impl__
+    server = await self._create_server()
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 1463, in create_server
+    raise OSError(err.errno, 'error while attempting '
+OSError: [Errno 98] error while attempting to bind on address ('159.89.122.203', 5678): address already in use
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 136, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 136, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
