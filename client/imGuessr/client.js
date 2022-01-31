@@ -44,9 +44,9 @@ socket.onmessage = (event) => {
             let curChat = $("#chat").html();
             let newChat = '<p class="chat-post soon">The game is starting in ' + data.starting_in + ' second(s)!</p>';
             $("#chat").html(curChat + newChat);
-            $("#seconds").html('second(s) until game start');
             chatScrollBottom();
         }
+        $("#seconds").html('second(s) until game start');
         $("#start-countdown").html(data.starting_in);
         if($("#game").is(":visible")) {
             $("#game").fadeOut(500, () => {
