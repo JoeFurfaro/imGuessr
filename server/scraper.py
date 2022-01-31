@@ -7,10 +7,14 @@ import json
 import urllib
 import random
 
+from PIL import Image
+
 MAX_DEPTH = 15
 
 
-def scrape_word(word):
+def scrape_word(word, dlp="", dlurl=""):
+
+    print("Called scrape word", word)
 
     headers = {
         "User-Agent":
@@ -27,7 +31,7 @@ def scrape_word(word):
                         params=params, headers=headers)
     soup = BeautifulSoup(html.text, 'lxml')
 
-    #print('\nGoogle Images Metadata:')
+    # print('\nGoogle Images Metadata:')
     for google_image in soup.select('.isv-r.PNCib.MSM1fd.BUooTd'):
         title = google_image.select_one(
             '.VFACy.kGQAp.sMi44c.lNHeqe.WGvvNb')['title']
@@ -78,6 +82,8 @@ def scrape_word(word):
     matched_google_full_resolution_images = re.findall(r"(?:'|,),\[\"(https:|http.*?)\",\d+,\d+\]",
                                                        removed_matched_google_images_thumbnails)
 
+    print("Matching")
+
     links = []
     # print('\nFull Resolution Images:')  # in order
     for index, fixed_full_res_image in enumerate(matched_google_full_resolution_images):
@@ -91,4 +97,38 @@ def scrape_word(word):
         links = links[0:MAX_DEPTH]
     else:
         return None
-    return links[random.randrange(0, len(links))]
+
+    resp = None
+    iters = 0
+    while resp == None or resp.status_code != 200 or resp.headers["Content-Type"].split("/")[-1] not in ("jpeg", "jpg", "png"):
+        if iters > 2*len(links):
+            return None
+        print('getting a link:', word)
+        lnk = links[random.randrange(0, len(links))]
+        print("Link to use", lnk)
+        iters += 1
+        resp = None
+        try:
+            resp = requests.get(lnk, timeout=2)
+            print("response code")
+            print(resp, resp.status_code)
+        except Exception as e:
+            print("GET exception fired:", e)
+            pass
+
+    file_type = resp.headers["Content-Type"].split("/")[-1]
+    fname = f"{dlp}download.{file_type}"
+
+    print("writing to file")
+    with open(fname, "wb") as file:
+        file.write(resp.content)
+    print("done writing!")
+
+    # Adjust size to improve download times
+    image = Image.open(fname)
+    image.thumbnail((500, 500))
+    image.save(fname)
+    print("done resaving!")
+
+    print("Final url:", dlurl + f"download.{file_type}")
+    return dlurl + f"download.{file_type}"

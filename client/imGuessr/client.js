@@ -44,9 +44,21 @@ socket.onmessage = (event) => {
             let curChat = $("#chat").html();
             let newChat = '<p class="chat-post soon">The game is starting in ' + data.starting_in + ' second(s)!</p>';
             $("#chat").html(curChat + newChat);
+            $("#seconds").html('second(s) until game start');
             chatScrollBottom();
         }
         $("#start-countdown").html(data.starting_in);
+        if($("#game").is(":visible")) {
+            $("#game").fadeOut(500, () => {
+                if(!$("#pregame").is(":visible")) {
+                    $("#pregame").fadeIn(300);
+                }
+            });
+        } else {
+            if(!$("#pregame").is(":visible")) {
+                $("#pregame").fadeIn(300);
+            }
+        }
     } else if(data.status == "STARTING") {
         let curChat = $("#chat").html();
         let newChat = '<p class="chat-post now">The game has begun!</p>';
@@ -70,14 +82,14 @@ socket.onmessage = (event) => {
         $("#display-image").attr("src", "");
     } else if(data.status == "NEW_ROUND") {
         $("#postround").fadeOut(200, () => {
-            $("#image-panel").delay(800).fadeIn(200);  
+            $("#image-panel").delay(0).fadeIn(200);  
             $("#pr-1").removeClass('pr-1-animate');
             $("#pr-2").removeClass('pr-2-animate');
             $("#pr-2b").removeClass('pr-2-animate');
             $("#pr-2c").removeClass('pr-2-animate');
             $("#pr-3").removeClass('pr-3-animate');
         });
-        $("#display-image").attr("src", data.img_url);
+        $("#display-image").attr("src", data.img_url + "?" + new Date().getTime());
         console.log($("#display-image").attr("width"));
         let curChat = $("#chat").html();
         let newChat = '<p class="chat-post"><span class="chat-name">A new round has started. Guess what you think the image is in the lobby chat!</span></p>';
@@ -170,9 +182,6 @@ socket.onmessage = (event) => {
     } else if(data.status == "STARTING_GAME") {
         $("#chat").html("");
         $("#leaderboard").html('<p class="text ml-auto mr-auto" style="width:90%">Players that have scored points will appear here, ranked in order of their score.</p>');
-        $("#game").fadeOut(500, () => {
-            $("#pregame").fadeIn(200);
-        });
     } else if(data.status == "IN_GAME") {
         $("#pregame").hide();
         $("#game").fadeIn(300);

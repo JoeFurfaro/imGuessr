@@ -52,24 +52,7 @@
   margin-left: auto;
   margin-right: auto;
   margin-top: 25vh;
-  animation-name: countdown-color;
-  animation-duration: 5s;
-  animation-iteration-count: infinite;
-}
-
-@keyframes countdown-color {
-  0% {
-    color: #174480;
-  }
-  25% {
-    color: #222222;
-  }
-  75% {
-    color: #666666;
-  }
-  100% {
-    color: #174480;
-  }
+  color: #174480;
 }
 
 #players-heading {
@@ -205,8 +188,6 @@
 #display-image {
   height: 60%;
   max-width: 80%;
-  border: 20px solid #bbbbbb;
-  border-radius: 10px;
 }
 
 .gold {

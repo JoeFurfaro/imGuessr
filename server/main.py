@@ -17,6 +17,15 @@ start_task = None
 round_task = None
 logging = True
 
+parser = argparse.ArgumentParser()
+parser.add_argument("address")
+parser.add_argument("port", type=int)
+parser.add_argument("dlp")
+parser.add_argument("dlurl")
+parser.add_argument("--ssl", nargs=2)
+
+args = parser.parse_args()
+
 
 def log(msg):
     if logging:
@@ -31,10 +40,9 @@ def packet(status, **kwargs):
 
 
 async def start_round():
-    global game, round_task, start_task
+    global game, round_task, start_task, args
     game.state = "preround"
     await lobby.send_all(packet(status="STARTING_ROUND"))
-    game.new_word()
     game.state = "guessing"
     await lobby.send_all(packet(status="NEW_ROUND", img_url=game.url))
     game.reset_timer()
@@ -47,14 +55,16 @@ async def start_round():
     game.state = "postround"
     game.lives -= 1
     await lobby.send_all(packet(status="ROUND_FAILED", word=game.word, lives=game.lives))
+    if game.lives == 0:
+        await lobby.send_all(packet(status="GAME_OVER", scores=game.jsonScores(), team_score=game.score))
+    game.new_word(args.dlp, args.dlurl)
     if game.lives > 0:
-        await asyncio.sleep(7)
+        await asyncio.sleep(5)
         round_task = asyncio.create_task(start_round())
     else:
         # Game over
         lobby.state = "finishing"
         # Send final scores and winner
-        await lobby.send_all(packet(status="GAME_OVER", scores=game.jsonScores(), team_score=game.score))
         await asyncio.sleep(12)
         lobby.state = "waiting"
         game = None
@@ -63,17 +73,19 @@ async def start_round():
 
 
 async def next_round():
-    global round_task
-    await asyncio.sleep(7)
+    global round_task, args
+    game.new_word(args.dlp, args.dlurl)
+    await asyncio.sleep(5)
     round_task = asyncio.create_task(
         start_round())
 
 
 async def start_game():
-    global game, round_task
+    global game, round_task, args
     lobby.state = "starting"
     await lobby.send_all(packet(status="STARTING_GAME"))
     game = Game()
+    game.new_word(args.dlp, args.dlurl)
     while game.starting_in > 0:
         await lobby.send_all(packet(status="STARTING_SOON", starting_in=game.starting_in))
         await asyncio.sleep(1)
@@ -140,7 +152,7 @@ async def time(socket, path):
         if lobby.has_player(name):
             lobby.remove_player(name)
             log(f"Player left: {name}")
-        if lobby.state == "starting" and len(lobby.players) == 0:
+        if (lobby.state == "starting" or lobby.state == "finishing") and len(lobby.players) == 0:
             log("Reset lobby to waiting state")
             if start_task != None:
                 start_task.cancel()
@@ -154,13 +166,6 @@ async def time(socket, path):
             game = None
             lobby.state = "waiting"
         await lobby.send_all(packet(status="PLAYER_LIST", players=lobby.player_list()))
-
-parser = argparse.ArgumentParser()
-parser.add_argument("address")
-parser.add_argument("port", type=int)
-parser.add_argument("--ssl", nargs=2)
-
-args = parser.parse_args()
 
 if args.ssl != None:
     ssl_context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
