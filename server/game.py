@@ -12,12 +12,12 @@ class Game():
     def __init__(self):
         self.url = None
         self.word = None
-        self.starting_in = 60
+        self.starting_in = 3
         # possible states: preround, guessing, postround
         self.state = "preround"
         self.round_winner = None
         self.lives = 3
-        self.max_round_time = 30
+        self.max_round_time = 3
         self.round_time = self.max_round_time
         self.score = 0
         self.player_scores = {}
@@ -25,15 +25,12 @@ class Game():
     def reset_timer(self):
         self.round_time = self.max_round_time
 
-    def new_word(self):
-        print("here1")
+    def new_word(self, dlp, dlurl):
         word = get_random_word()
-        print("here2", word)
-        url = scrape_word(word)
-        print("here3", url)
+        url = scrape_word(word, dlp, dlurl)
         if(url == None or url == "" or word == None or word == ""):
+            print("Scrape returned null!")
             self.new_word()
-        print("here4")
         self.word = word
         self.url = url
 
