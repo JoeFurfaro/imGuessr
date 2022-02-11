@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>imGuessr - Guess the word!</title>
+    <title>The Ledge Guessr</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -24,7 +24,7 @@
       rel="stylesheet"
     />
     <link rel="icon" href="icon.png" />
-    <link rel="shortcut icon" href="icon.png" />
+    <link rel="shortcut icon" href="ledge_assets/Icon-Square.png" />
   </head>
   <body>
     <div class="container-fluid">
@@ -34,7 +34,7 @@
         class="col-4 mt-5 pt-5 ml-auto mr-auto text-center"
       >
       <div class="row mt-5 text-center">
-        <img class="name-img ml-auto mr-auto" src="icon.png" />
+        <img class="name-img ml-auto mr-auto" src="ledge_assets/Icon.png" />
       </div>
         <div class="row">
           <h1 id="choose-name" class="text-center ml-auto mr-auto">
@@ -63,21 +63,50 @@
           ></h5>
         </div>
       </div>
+      <div
+        id="offline"
+        style="display: none"
+        class="col-4 mt-5 pt-5 ml-auto mr-auto text-center"
+      >
+      <div class="row mt-5 text-center">
+        <img class="offline-img ml-auto mr-auto" src="ledge_assets/Icon.png" />
+      </div>
+        <div class="row">
+          <h1 id="offline-text" class="text-center ml-auto mr-auto">
+            is currently offline
+          </h1>
+        </div>
+        <div class="row">
+          <h1 id="offline-text-sub" class="text-center ml-auto mr-auto">
+            Be sure to come back at game time!
+          </h1>
+        </div>
+        <div class="row">
+            <button id="offline-button" onclick="admin_start()" class="text-center ml-auto mr-auto">
+                &#128274; Admin Start
+            </button>
+          </div>
+      </div>
       <div id="leaderboard-box">
+            <img src="ledge_assets/Leaderboard.png" id="lb-img" />
+            <img src="ledge_assets/Players.png" id="pl-img" />
+          <!--div id="min-max-lb">
+                &#x25C2;
+          </div-->
         <div id="leaderboard-heading">
-          <h1 id="leaderboard-header" class="text blue ml-4 pt-2">
-            <img src="leaderboard.png" class="header-img mr-1" /> Leaderboard
+          <h1 id="leaderboard-header" class="pt-2">
+            <!--img src="leaderboard.png" class="header-img mr-1" /-->Leaderboard
           </h1>
         </div>
         <div id="leaderboard">
-          <p class="text ml-auto mr-auto" style="width: 90%">
+          <p class="lb-intro text ml-auto mr-auto" style="width: 90%">
             Players that have scored points will appear here, ranked in order of their
             score.
           </p>
         </div>
         <div id="players-heading">
-          <h1 id="players-header" class="text blue ml-4 pt-2">
-            <img src="players.png" class="header-img mr-1" /> Players
+          <h1 id="players-header" class="pt-2">
+            <!--img src="players.png" class="header-img mr-1" /-->Players
           </h1>
         </div>
         <div id="players">
@@ -85,9 +114,10 @@
         </div>
       </div>
       <div id="chatbox">
+        <img src="ledge_assets/Moon.png" id="cb-img" />
         <div id="chatbox-heading">
-          <h1 id="live-chat-header" class="text blue ml-4 pt-2">
-            <img src="chat.png" class="header-img mr-1" /> Lobby Chat
+          <h1 id="live-chat-header" class="pt-2">
+            <!--img src="chat.png" class="header-img mr-1" /-->Lobby Chat
           </h1>
         </div>
         <div id="chat"></div>
@@ -101,12 +131,14 @@
         </div>
       </div>
       <div id="pregame" style="display: none">
-        <h1 class="text" id="start-countdown"></h1>
-        <h2 id="seconds" class="text text-secondary">second(s) until game start</h2>
+        <img src="ledge_assets/Sign.png" id="sign-img" />
+        <h1 class="" id="start-countdown"></h1>
+        <h2 id="seconds" class="">seconds until game start</h2>
+        <img src="ledge_assets/Spaceship.png" id="ss-img" />
       </div>
       <div id="game" style="display: none">
         <div id="image-panel">
-          <img id="display-image" src="" />
+          <img  id="display-image" oncontextmenu="return false" src="" />
         </div>
         <div id="postround">
           <h1 class="text mb-4" id="pr-1"></h1>

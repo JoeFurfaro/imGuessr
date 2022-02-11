@@ -69,8 +69,8 @@ class Game():
 class Lobby():
     def __init__(self):
         self.players = set()
-        # possible states: waiting, starting, playing, finishing
-        self.state = "waiting"
+        # possible states: off, waiting, starting, playing, finishing
+        self.state = "off"
 
     async def send_all(self, msg):
         for player in self.players:
