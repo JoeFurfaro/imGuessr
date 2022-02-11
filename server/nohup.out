@@ -1049,3 +1049,552 @@ Traceback (most recent call last):
   File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
     raise self.connection_closed_exc()
 websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 101, in time
+    name = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 150, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 944, in transfer_data
+    message = await self.read_message()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 1013, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 1089, in read_data_frame
+    frame = await self.read_frame(max_size)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+  File "/usr/lib/python3.8/asyncio/streams.py", line 723, in readexactly
+    await self._wait_for_data('readexactly')
+  File "/usr/lib/python3.8/asyncio/streams.py", line 517, in _wait_for_data
+    await self._waiter
+  File "/usr/lib/python3.8/asyncio/selector_events.py", line 848, in _read_ready__data_received
+    data = self._sock.recv(self.max_size)
+ConnectionResetError: [Errno 104] Connection reset by peer
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 101, in time
+    name = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 150, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 150, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+Task exception was never retrieved
+future: <Task finished name='Task-46' coro=<start_round() done, defined at main.py:42> exception=AttributeError("'NoneType' object has no attribute 'state'")>
+Traceback (most recent call last):
+  File "main.py", line 44, in start_round
+    game.state = "preround"
+AttributeError: 'NoneType' object has no attribute 'state'
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 150, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 150, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+Starting server!
+Player joined: joe
+Game will start soon
+Called scrape word picture
+Matching
+getting a link: picture
+Link to use https://www.planetware.com/wpimages/2020/02/france-in-pictures-beautiful-places-to-photograph-eiffel-tower.jpg
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.jpeg
+Player left: joe
+Reset lobby to waiting state
+Player joined: joe
+Game will start soon
+Called scrape word image
+Matching
+getting a link: image
+Link to use https://images.unsplash.com/photo-1453728013993-6d66e9c9123a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dmlld3xlbnwwfHwwfHw%3D&w=1000&q=80
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.jpeg
+Game starting now!
+Called scrape word body
+Matching
+getting a link: body
+Link to use https://www.acls.net/images/study-guide-body-systems.svg
+response code
+<Response [200]> 200
+getting a link: body
+Link to use https://cdn.mos.cms.futurecdn.net/yebgNAPBke9z9U3mxpSAB9.jpg
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.jpeg
+Called scrape word program
+Matching
+getting a link: program
+Link to use https://www.computerhope.com/jargon/p/program.png
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.png
+Called scrape word record
+Matching
+getting a link: record
+Link to use https://globalnews.ca/wp-content/uploads/2019/05/turntable.jpg?quality=85&strip=all
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.jpeg
+Called scrape word comfy
+Matching
+getting a link: comfy
+Link to use https://m.media-amazon.com/images/I/71vYl2+78GL._AC_SX466_.jpg
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.jpeg
+Called scrape word negotiation
+Matching
+getting a link: negotiation
+Link to use https://pmtips.net/Portals/0/EasyDNNnews/1892/img-the-art-of-negotiation.jpg
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.jpeg
+Called scrape word reach
+Matching
+getting a link: reach
+Link to use https://crismachem.com/wp-content/uploads/2020/06/REACH-compliant_.jpg
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.jpeg
+Called scrape word as
+Matching
+getting a link: as
+Link to use https://previews.123rf.com/images/ankreative/ankreative2001/ankreative200100124/138923631-dise%C3%B1o-de-logotipo-como-letra-con-un-corte-creativo-dise%C3%B1o-de-logotipo-creativo-.jpg
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.jpeg
+Called scrape word half
+Matching
+getting a link: half
+Link to use https://res.cloudinary.com/dk-find-out/image/upload/q_70,c_pad,w_1200,h_630,f_auto/half1_fcqvok.jpg
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.jpeg
+Called scrape word ocean
+Matching
+getting a link: ocean
+Link to use https://s3.amazonaws.com/ghost-cms-woi/2021/06/BlueRecovery.jpg
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.jpeg
+Called scrape word economic
+Matching
+getting a link: economic
+Link to use https://www.thebalancecareers.com/thmb/_kXuE_dJCpOj78TpZ0Tu0kNUj3k=/1500x844/smart/filters:no_upscale()/top-jobs-for-economics-majors-2059650_FINAL-428ca1607c3b47cea499d2eb46d26b10.png
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.png
+Called scrape word charity
+Matching
+getting a link: charity
+Link to use https://www.usnews.com/dims4/USNEWS/9b62b7c/2147483647/crop/2000x1313%2B0%2B4/resize/640x420/quality/85/?url=http%3A%2F%2Fmedia.beam.usnews.com%2Fa9%2Fe8%2F046d240745f590f48c4d6067a9f5%2F200923-stock.jpg
+GET exception fired: HTTPSConnectionPool(host='www.usnews.com', port=443): Read timed out. (read timeout=2)
+getting a link: charity
+Link to use https://www.airdberlis.com/images/default-source/default-album/shutterstock_277949417_charity.jpg?sfvrsn=ee4158d5_2
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.jpeg
+Player left: joe
+Reset lobby to waiting state
+Player joined: G
+Game will start soon
+Called scrape word underwear
+Matching
+getting a link: underwear
+Link to use https://cdn.sanity.io/images/tw5gcwis/production/498259e85a9531c4c86326bbde1e16626b929380-264x352.png?w=400&auto=format&q=85
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.png
+Player left: G
+Reset lobby to waiting state
+Player joined: Joe Furfaro
+Game will start soon
+Called scrape word middle
+Matching
+getting a link: middle
+Link to use https://www.internationalaffairs.org.au/wp-content/uploads/2017/06/middle-power.png
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.png
+Game starting now!
+Called scrape word pizza
+Matching
+getting a link: pizza
+Link to use https://static.toiimg.com/thumb/53110049.cms?width=1200&height=900
+response code
+<Response [200]> 200
+getting a link: pizza
+Link to use https://www.simplyrecipes.com/thmb/1KOEQ0SPZNXwU0pUXUDdAm6Z7xo=/2001x2001/smart/filters:no_upscale()/Simply-Recipes-Homemade-Pizza-Dough-Lead-Shot-1c-c2b1885d27d4481c9cfe6f6286a64342.jpg
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.jpeg
+Called scrape word range
+Matching
+getting a link: range
+Link to use https://images.squarespace-cdn.com/content/v1/57683e2f8419c29d040867a0/1602798407481-3F9SUK8FSE4GPUGL0MXO/zline--professional--stainless--steel--dual--fuel--range--RA48--hero.jpg
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.jpeg
+Called scrape word stand
+Matching
+getting a link: stand
+Link to use https://www.bhphotovideo.com/images/images2500x2500/General_Brand_LS6B_Light_Stand_1_4_20_262758.jpg
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.jpeg
+Player left: Joe Furfaro
+Reset lobby to waiting state
+Player joined: Joe
+Game will start soon
+Called scrape word society
+Matching
+getting a link: society
+Link to use http://www.thegreatcoursesdaily.com/wp-content/uploads/2020/08/Redefining-Reality_Social-Facts-and-Necessities-for-a-Healthy-Society_QBS_Featured.jpg
+response code
+<Response [403]> 403
+getting a link: society
+Link to use https://images.squarespace-cdn.com/content/v1/5dba533ba8cef56383afc7f6/1574887499296-LSSAOP67H2KZGE9KIITB/logo+change.png
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.png
+Player left: Joe
+Reset lobby to waiting state
+Player joined: Joe Furfaro
+Game will start soon
+Called scrape word member
+Matching
+getting a link: member
+Link to use https://www.iiba.org/contentassets/a77b7d7258614d758252b46f26728dda/member-card-768x432.jpg
+response code
+<Response [403]> 403
+getting a link: member
+Link to use https://www.ncsbn.org/images/members-featured.png
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.png
+Game starting now!
+Called scrape word expect
+Matching
+getting a link: expect
+Link to use http://cdn.differencebetween.net/wp-content/uploads/2015/01/hope_wait_expect_lookforward.png
+response code
+<Response [200]> 200
+writing to file
+done writing!
+done resaving!
+Final url: ../imGuessr/downloads/download.png
+Called scrape word strategy
+Matching
+getting a link: strategy
+Link to use connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 150, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 944, in transfer_data
+    message = await self.read_message()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 1013, in read_message
+    frame = await self.read_data_frame(max_size=self.max_size)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 1089, in read_data_frame
+    frame = await self.read_frame(max_size)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 1144, in read_frame
+    frame = await Frame.read(
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/framing.py", line 70, in read
+    data = await reader(2)
+  File "/usr/lib/python3.8/asyncio/streams.py", line 721, in readexactly
+    raise exceptions.IncompleteReadError(incomplete, n)
+asyncio.exceptions.IncompleteReadError: 0 bytes read on a total of 2 expected bytes
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 101, in time
+    name = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 920, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedError: no close frame received or sent
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 150, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 150, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 150, in time
+    msg = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 101, in time
+    name = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 101, in time
+    name = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 101, in time
+    name = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 101, in time
+    name = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 101, in time
+    name = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 101, in time
+    name = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
+connection handler failed
+Traceback (most recent call last):
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 231, in handler
+    await self.ws_handler(self)
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/server.py", line 1134, in _ws_handler
+    return await cast(
+  File "main.py", line 101, in time
+    name = await socket.recv()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 552, in recv
+    await self.ensure_open()
+  File "/home/sophie/.local/lib/python3.8/site-packages/websockets/legacy/protocol.py", line 929, in ensure_open
+    raise self.connection_closed_exc()
+websockets.exceptions.ConnectionClosedOK: received 1001 (going away); then sent 1001 (going away)
