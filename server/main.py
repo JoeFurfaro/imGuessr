@@ -26,6 +26,10 @@ parser.add_argument("--ssl", nargs=2)
 
 args = parser.parse_args()
 
+admin_key = "L3dg3"
+
+cons = set()
+
 
 def log(msg):
     if logging:
@@ -97,24 +101,48 @@ async def start_game():
 
 
 async def time(socket, path):
-    global start_task, round_task, game
-    name = await socket.recv()
-    while lobby.has_player(name):
-        await socket.send(packet(status="JOIN_FAILED", details=f"The name {name} is already taken!"))
-        name = await socket.recv()
-    player = lobby.add_player(name, socket)
-    log(f"Player joined: {name}")
-    await socket.send(packet(status="JOIN_SUCCESS"))
-    await lobby.send_all(packet(status="PLAYER_LIST", players=lobby.player_list()))
-    if lobby.state == "playing":
-        await socket.send(packet(status="IN_GAME", scores=game.jsonScores()))
-        if game.state == "guessing":
-            await socket.send(packet(status="NEW_ROUND", img_url=game.url))
-        elif game.state == "postround":
-            await socket.send(packet(status="POST_ROUND"))
-    elif lobby.state == "finishing":
-        await socket.send(packet(status="IN_GAME", scores=game.jsonScores()))
-        await socket.send(packet(status="GAME_OVER", scores=game.jsonScores(), team_score=game.score))
+    global start_task, round_task, game, lobby, cons
+    cons.add(socket)
+    if lobby.state == "off":
+        await socket.send(packet(status="LOBBY_OFF"))
+    else:
+        await socket.send(packet(status="LOBBY_ON"))
+
+    try:
+        name = ""
+        namePicked = False
+        while lobby.state == "off":
+            initial = await socket.recv()
+            if lobby.state == "off":
+                if initial == admin_key:
+                    lobby.state = "waiting"
+                    for conn in cons:
+                        print("Sending to " + repr(conn))
+                        await conn.send(packet(status="LOBBY_ENABLED"))
+            else:
+                name = initial
+                namePicked = True
+        if lobby.state != "off" and not namePicked:
+            name = await socket.recv()
+        while lobby.has_player(name):
+            await socket.send(packet(status="JOIN_FAILED", details=f"The name {name} is already taken!"))
+            name = await socket.recv()
+        player = lobby.add_player(name, socket)
+        log(f"Player joined: {name}")
+        await socket.send(packet(status="JOIN_SUCCESS"))
+        await lobby.send_all(packet(status="PLAYER_LIST", players=lobby.player_list()))
+        if lobby.state == "playing":
+            await socket.send(packet(status="IN_GAME", scores=game.jsonScores()))
+            if game.state == "guessing":
+                await socket.send(packet(status="NEW_ROUND", img_url=game.url))
+            elif game.state == "postround":
+                await socket.send(packet(status="POST_ROUND"))
+        elif lobby.state == "finishing":
+            await socket.send(packet(status="IN_GAME", scores=game.jsonScores()))
+            await socket.send(packet(status="GAME_OVER", scores=game.jsonScores(), team_score=game.score))
+    except Exception as e:
+        print("e here", e)
+
     try:
         if lobby.state == "waiting":
             log("Game will start soon")
@@ -128,7 +156,24 @@ async def time(socket, path):
                 continue
             elif msg[0] == "/":
                 # handle command
-                pass
+                if len(msg) > 1:
+                    cmd = msg[1:]
+                    arguments = cmd.split(" ")
+                    if arguments[0] == "stop":
+                        if len(arguments) > 1 and arguments[1] == admin_key:
+                            # Handle stopping
+                            for conn in cons:
+                                await conn.send(packet(status="FORCE_STOPPED"))
+                            lobby = Lobby()
+                            game = None
+                            if start_task != None:
+                                start_task.cancel()
+                                start_task = None
+                            if round_task != None:
+                                round_task.cancel()
+                                round_task = None
+                        else:
+                            await socket.send(packet(status="INVALID_STOP_KEY"))
             else:
                 # handle message or guess
                 if lobby.state == "waiting" or lobby.state == "starting" or lobby.state == "finishing":
@@ -148,7 +193,14 @@ async def time(socket, path):
                     else:
                         await lobby.send_all(packet(status="MESSAGE", player=name, data=msg))
             msg = await socket.recv()
+    except Exception as e:
+        print("HERE BANANAS")
+        print(e)
+        if socket in cons:
+            cons.remove(socket)
     finally:
+        if socket in cons:
+            cons.remove(socket)
         if lobby.has_player(name):
             lobby.remove_player(name)
             log(f"Player left: {name}")
